@@ -10,7 +10,7 @@
 /ui_1/build
 
 # misc
-/backend/config/config.env
+/api_1/.env
 /ui_1/.DS_Store
 /ui_1/.env.local
 /ui_1/.env.development.local
