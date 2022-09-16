@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node api_1/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon api_1/server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix ui_1 && npm run build --prefix ui_1"
+    "dev": "nodemon api_1/server.js"
+    // "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix ui_1 && npm run build --prefix ui_1"
   },
   "keywords": [],
   "author": "",
