@@ -98,10 +98,10 @@ app.use('/api/v1', orderRouter)
 app.use('/api/v1',paymentRouter)
 
 // uploading heroku process start
-app.use(express.static(path.join(__dirname,"../ui/build")))
+app.use(express.static(path.join(__dirname,"../ui_1/build")))
 
 app.get("*",(req,res)=>{
-    res.sendFile(path.resolve(__dirname,"../ui/build/index.html"))
+    res.sendFile(path.resolve(__dirname,"../ui_1/build/index.html"))
 })
 // uploading heroku process end
 
