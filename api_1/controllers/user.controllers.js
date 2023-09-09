@@ -8,26 +8,26 @@ const cloudinary = require("cloudinary")
 const otpDatabase = require("../model/otpmodel")
 // regiter user
 const register = catchAsyncError(async (req, res, next) => {
-    const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
-        folder: "avatars",
-        width: 150,
-        crop: "scale"
-    })
+        const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+            folder: "avatars",
+            width: 150,
+            crop: "scale"
+        })
 
-    const { name, email, password } = req.body
+        const { name, email, password } = req.body
 
-    const user = await userDatabase.create({
-        name, email, password,
-        avatar: {
-            public_id: myCloud.public_id,
-            url: myCloud.secure_url
+        const user = await userDatabase.create({
+            name, email, password,
+            avatar: {
+                public_id: myCloud.public_id,
+                url: myCloud.secure_url
+            }
+        })
+
+        if (!user) {
+            return next(new ErrorHandler("please fill all deatais", 404))
         }
-    })
-
-    if (!user) {
-        return next(new ErrorHandler("please fill all deatais", 404))
-    }
-    sendToken(user, 200, res)
+        sendToken(user, 200, res)
 })
 
 
